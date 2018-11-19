@@ -3,8 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-require('./assets/js/jquery-3.3.1.min') //import 也可以
-//import './assets/css/base.css'
+require('./assets/css/base.scss')
 
 Vue.config.productionTip = false
 /* eslint-disable no-new */
@@ -15,3 +14,5 @@ new Vue({
     return creat(App)
   }
 })
+//main.js只能引assets下的文件 因为要打包
+//static下的文件直接在index.html引入

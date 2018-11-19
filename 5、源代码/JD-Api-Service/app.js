@@ -8,6 +8,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var datasRouter = require('./routes/shopSchooldatas');
 var IndexsliderRouter = require('./routes/indexSliderImg');
+var indexshopActiveRouter=require('./routes/index.shopActive');
+var menuRouter=require('./routes/index.menu')
 
 var app = express();
 
@@ -25,6 +27,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/datas',datasRouter);
 app.use('/slider',IndexsliderRouter);
+app.use('/shopActive',indexshopActiveRouter);
+app.use('/indexMenu',menuRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

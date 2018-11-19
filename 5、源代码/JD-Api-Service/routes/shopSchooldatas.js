@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var IndexData = require("../data/Index.data");
+var IndexData = require("../data/index.shopschoolData");
 
 router.get('/', function(req, res, next) {
     //设置允许跨域的域名，*代表允许任意域名跨域
