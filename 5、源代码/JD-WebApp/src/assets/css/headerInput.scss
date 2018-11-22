@@ -3,24 +3,20 @@ $wt:#fff;
 .nav-box {
   padding: .8rem;
   display: flex;
-  position: fixed;
   z-index: 333;
   width: 100%;
+  position: fixed;
+  top:0;
+  left:0;
   a {
     display: flex;
     flex-direction: column;
     width: 3.8rem;
     height: 3.8rem;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: $wt;
+   // background-color: rgba(0, 0, 0, 0.3);
+   // color: $wt;
     border-radius: 50%;
     line-height: 1rem;
-    i {
-      font-size: 2rem;
-      font-weight: 200;
-      margin: 0 auto;
-      margin-top: .4rem;
-    }
     span {
       font-size: .8rem;
       margin: 0 auto;

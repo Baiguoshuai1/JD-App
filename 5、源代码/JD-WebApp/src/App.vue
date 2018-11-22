@@ -1,7 +1,7 @@
 <template>
   <div style="display: flex;flex-direction: column;min-height: 100vh;">
-          <router-view class="swiper-slide" />
-    <BottomNav></BottomNav>
+      <router-view class="swiper-slide" style="max-height: 92vh;overflow:auto;flex: 1;"/>
+      <BottomNav></BottomNav>
   </div>
 </template>
 <script>
@@ -20,7 +20,7 @@
     BottomNav
     },
     mounted(){
-      var his=this
+      var his=this;
       var swiper = new Swiper('.index',{
         speed: his.oriSpeed,
         slidesPerView: 'auto',

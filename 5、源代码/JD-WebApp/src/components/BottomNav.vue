@@ -26,6 +26,8 @@
     height: 8vh;
     font-size: 1.1rem;
     background-color: #fff;
+    position: relative;
+    z-index: 1000;
   }
   .nav{
     display: flex;/*这个和下面的 flex-direction属性设置将图片与文字平行排布*/
@@ -34,7 +36,7 @@
     line-height: 1.6rem;
     text-align: center;
     margin: 0 auto;
-    margin-top: .7rem;
+    margin-top: 1em;
     color:#2e2d2d;
   }
   .navIcon{

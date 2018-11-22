@@ -9,7 +9,9 @@ var usersRouter = require('./routes/users');
 var datasRouter = require('./routes/shopSchooldatas');
 var IndexsliderRouter = require('./routes/indexSliderImg');
 var indexshopActiveRouter=require('./routes/index.shopActive');
-var menuRouter=require('./routes/index.menu')
+var menuRouter=require('./routes/index.menu');
+var selectRouter=require('./routes/selectShopData');
+var shopcarlist=require('./routes/shopcarList')
 
 var app = express();
 
@@ -29,6 +31,8 @@ app.use('/datas',datasRouter);
 app.use('/slider',IndexsliderRouter);
 app.use('/shopActive',indexshopActiveRouter);
 app.use('/indexMenu',menuRouter);
+app.use('/selectShopData',selectRouter);
+app.use('/shopcarlist',shopcarlist)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

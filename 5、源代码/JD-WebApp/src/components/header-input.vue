@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-box">
+    <div class="nav-box">
     <a href="javascript:void(0)">
       <i class="iconfont">&#xe680;</i>
       <span>扫啊扫</span>
@@ -22,7 +22,8 @@
 
 <script>
     export default {
-        name: "header-input"
+        name: "header-input",
+      props:["items"]
     }
 </script>
 

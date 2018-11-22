@@ -1,98 +1,196 @@
 <template>
-  <div style="max-height: 92vh;overflow:auto;flex: 1;">
-    <header>
-      <header-input></header-input>
-      <slider></slider>
-    </header>
-    <main>
-      <menu-nav ref="myInterval"></menu-nav>
-      <shop-active></shop-active>
-      <shop-school></shop-school>
-    </main>
+  <div id="Wrapp" class="wrapper" ref="wrapper">
+    <div class="scroller">
+      <div id="indexChild" >
+        <div class="download" v-if="pulldown" style="text-align: center;align-items: center;font-size: 1rem;color:#aaa;padding:.1rem;position: relative;display: flex">
+          <img src="../../static/img/loader.png" width="25" height="50" style="margin-left: auto;margin-right: .1em">
+          <div style="margin-right: auto;">
+            <p style="font-size: 1.1rem;color:#777">{{pulldownsubTxt}}</p>
+            {{pulldownTxt}}
+          </div>
+        </div>
+        <header>
+          <slider></slider>
+        </header>
+        <main>
+          <menu-nav></menu-nav>
+          <shop-active></shop-active>
+          <shop-school></shop-school>
+        </main>
+        <div class="upload" v-if="pullup" style="text-align: center;font-size: 1rem;color:#aaa">{{pullupText}}</div>
+      </div>
+    </div>
+    <header-input></header-input>
   </div>
 </template>
 
 <script>
+    import $ from "../../static/js/jquery-3.3.1.min"
     import HeaderInput from "../components/header-input";
     import slider from "../components/slider";
     import MenuNav from "../components/indexComponents/menu-nav";
     import shopActive from '../components/indexComponents/shopActive'
     import ShopSchool from "../components/indexComponents/shopSchool";
+    import BScroll from 'better-scroll'
 
     export default {
       name: "index",
-      data(){
+      data() {
         return {
-          top: 0,
-          startY: 0,          // 保存 y轴点的位置
-          touching: false,   // 代表当前是否处于 下拉刷新行为的开关，也就是当属于滚动行为时，就要退出该事件机制
+          pulldown:false,
+          pulldownTxt:"松手更新",
+          pulldownsubTxt:"让购物更便捷",
+          pullup:false,
+          pullupText:"获取更多....",
+          pullDirection:0,
+          pageIndex:1,
+          lastY:0,
+          list:[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
         }
       },
-      methods:{
-        touchStart(e) {
-          // e代表该事件对象，e.targetTouches[0].pageY可以拿到手指按下的 y轴点
-          this.startY = e.targetTouches[0].pageY
-          // 开启下拉刷新状态
-          this.touching = true
+      methods: {
+        _headerChange() {
+          if ($(".wrapper").scrollTop() > 0) {
+            $(".nav-box").addClass("header-boxChange")
+          }
+          else {
+            $(".nav-box").removeClass("header-boxChange")
+          }
+          if($(".scroller").scrollTop() > 0){
+            $(".nav-box").addClass("header-boxChange")
+          }
+        },
+        _scrollChange() {
+          let his = this
+          //子盒子发生滚动事件时
+          $(".wrapper").scroll(function (event) {
+            let scrollT = $(this).scrollTop()
+            //存储滚动位置
+            window.localStorage.setItem("scrollT", scrollT)
+            //改变头部样式
+            his._headerChange()
+          })
+          //下拉盒子发生滚动事件
+          $(".scroller").scroll(function () {
+            alert("1")
+          })
 
         },
-        touchMove(e) {
-          //这个 touchMove，只要页面在动都会发生的，所以 touching就起作用了
-          // 如果 touching为false，说明这个正在移动的页面不是我们想要的下拉刷新，有可能是用户随意拉了一下页面而已，或者其他
-          if(!this.touching) return
-          // 获取移动的距离
-          let diff = e.targetToc=uches[0].pageY - this.startY
-          //判断是向上拉还是向下拉
-          if(diff >0) {
-            e.preventDefault()
-          } else {
-            return
-          }
-          //这个this.top要对应绑定到该元素的transform: translateY(+top+ 'px')上，不然是无法拉动的
-          // 因此这里还要对偏移高度做一下处理，直接设置diff +(this.state === 2 ? 40 : 0) 太快了，因为拉取幅度太大
-          // 让diff*0.25这样子就差不多了
-          this.top = Math.floor(diff*0.25) + (this.state === 2 ? 40 : 0)
-          if(this.top >= 40){
-            this.state = 1   //代表正在拉取
-          } else {
-            this.state = 0  // 代表初始转态
-          }
-        },
-        touchEnd(e) {
-          this.touching = false
-          if(this.state === 2) {
-            this.top = 40
-            return
-          }
-          // 判断抬起时的高度，是大于40 就开启刷新
-          if(this.top >= 40) {
-            this.refresh()
-          } else {
-            this.state = 0
-            this.top = 0
-          }
-        },
-        refresh() {
-          this.state = 2
-          this.top = 40
-          const self = this
-          // 这里可以调用父组件的方法去请求刷新接口
-          this.$emit('getRefresh', function(self){
-            //传个回调过去，请求完数据就复原
-            self.state = 0
-            self.top = 0
-          })
+        _refreshAlert(text) {
+          text = text || '操作成功';
+          //$(".nav-box").stop().fadeOut(0)
+            $(".download").stop().slideUp(500,function () {
+              $(".nav-box").stop().fadeIn(100)
+            })
         }
       },
-      components:{
-        HeaderInput,
-        slider,
-        MenuNav,
-        shopActive,
-        ShopSchool,
+        components: {
+          HeaderInput,
+          slider,
+          MenuNav,
+          shopActive,
+          ShopSchool
+        },
+        mounted() {
+          this._headerChange()
+          this._scrollChange()
+          let scrollT = window.localStorage.getItem("scrollT")
+          console.log(scrollT)
+          $(".wrapper").scrollTop(scrollT)
+
+          //下拉与上拉
+          this.$nextTick(()=>{
+            var scroller =new BScroll(this.$refs.wrapper,{
+              probeType:3
+            })
+
+            scroller.on("scrollStart", ()=> {
+              //判断是下拉,还是上拉
+
+              let translatey=$('.scroller').css('transform').replace(/[^0-9\-,]/g,'').split(',')[1]
+              console.log(translatey)
+              // if(translatey>0){
+              //    $(".nav-box").addClass("header-boxChange")
+              // }else if(translatey==0){
+              //   $(".nav-box").removeClass("header-boxChange")
+              // }
+            })
+
+            scroller.on("scroll", ()=> {
+             // console.log("scrollY:"+scroller.y)
+             // console.log("maxY:"+scroller.maxScrollY)
+              //判断是下拉,还是上拉
+              if(scroller.y > 0){
+                //防止jquerybug先停止之前的动画
+                $(".download").stop()
+                this.pulldownTxt = "松手更新"
+                $(".nav-box").stop().fadeOut(100)
+                this.pulldown = true;
+                this.pullDirection = 1
+              }
+
+              if(scroller.y > 10 && scroller.y <=30){
+                //高度大于10再显示
+                $(".download").stop().show()
+                this.pulldownTxt = "松手更新"
+                this.pullDirection = 1
+              }
+
+              //上拉
+              if(scroller.y-scroller.maxScrollY <0){
+                this.pullup = true;
+                this.pullDirection = -1;
+                this.pullupText="释放分页...."
+               // console.log("是否在底部:"+(scroller.y-scroller.maxScrollY))
+              }
+
+              if(scroller.y-scroller.maxScrollY > -50 && scroller.y-scroller.maxScrollY < -10 ){
+                this.pullup = true;
+                this.pullDirection = -1;
+                this.pullupText="释放分页...."
+               // console.log("是否在底部:"+(scroller.y-scroller.maxScrollY))
+              }
+            })
+
+            scroller.on("scrollEnd", ()=> {
+              if(this.pullDirection ==1){
+                this.pulldownTxt = "更新中..."
+                setTimeout(()=>{
+                  /*
+                   * 这里发送ajax刷新数据
+                   * 刷新后,后台只返回第1页的数据,无论用户是否已经上拉加载了更多
+                  */
+                  // 恢复文本值
+                  this.pulldownTxt = '刷新暂且成功';
+                  // 刷新成功后的提示
+                  this._refreshAlert('刷新成功');
+                  // 刷新列表后,重新计算滚动区域高度
+                  //scroll.refresh();
+                }, 1000);
+              }else if(this.pullDirection == -1){
+
+                //如果当前下拉的数比总的scrollerY小,获取新数据
+                if(scroller.y <=scroller.maxScrollY){
+                  this.pullupText = "分页加载中..."
+                  this.pageIndex++
+                  for(var i=3;i<100;i++){
+                   this.list.push(i)
+                  }
+                 // scroller.refresh()
+                  console.log(`加载了第 ${this.pageIndex} 页`)
+                }
+              }
+             // console.log("scrollEnd")
+            })
+          })
+
+        },
+      updated(){
+        console.log("updated")
       }
     }
 </script>
 <style lang="scss">
   @import "../assets/css/index.scss";
+
 </style>

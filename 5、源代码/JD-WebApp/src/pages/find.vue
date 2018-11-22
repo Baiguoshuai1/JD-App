@@ -1,5 +1,6 @@
 <template>
-  <div style="max-height: 94vh;overflow:auto;flex: 1;">
+  <div>
+
   </div>
 </template>
 

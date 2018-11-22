@@ -3,6 +3,8 @@ import {sliderImgUrl} from '../commons/indexData'
 import {shopActive} from "../commons/indexData";
 import {shopschoolUrl} from '../commons/indexData'
 import {indexMenu} from '../commons/indexData'
+import {selectShopUrl} from "../commons/indexData";
+import {shopcarlists} from "../commons/indexData";
 
 
 export default {
@@ -49,5 +51,28 @@ export default {
           callb(data)
         })
       })
-    }
+    },
+  /**
+   * 获取分类页面的数据
+   * @param callb
+   */
+  getSelectShopDatas(callb){
+    fetch(selectShopUrl).then(res=> {
+      res.json().then(data => {
+        callb(data)
+      })
+    })
+  },
+  /**
+   * 获取购物车页面的数据
+   * @param callb
+   */
+  getshopcarlist(callb){
+    fetch(shopcarlists).then(res=> {
+      res.json().then(data => {
+        callb(data)
+      })
+    })
+  }
+
   }

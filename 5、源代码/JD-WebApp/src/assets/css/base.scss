@@ -43,7 +43,9 @@ body {
 body,html{height:100%}
 
 header,footer,nav,main,section,article,aside,figure,figcaption{display:block}
-
+label{
+  display: flex;align-items: center;
+}
 
 /*——------超链接样式--------------*/
 a{text-decoration:none;cursor: pointer;color:#252525}
