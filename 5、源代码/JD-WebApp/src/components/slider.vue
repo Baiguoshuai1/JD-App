@@ -14,7 +14,7 @@
 </template>
 
 <script>
-    import Swiper from '../../static/js/swiper'
+    import Swiper from 'swiper'
     import sliderImg from '../apis/data-Apis'
     export default {
         name: "silder",
@@ -36,9 +36,9 @@
         //图片自动轮播
         _initSwiper (){
           var swiper = new Swiper('.s1', {
-            //loop: true,
-            //slidesPerView: 'auto',
-           // centeredSlides: true,
+            loop: true,
+            slidesPerView: 'auto',
+            centeredSlides: true,
             autoplay: {
               delay: 2000,
               disableOnInteraction: false,
@@ -48,8 +48,8 @@
               //clickable: true,
             },
             preventLinksPropagation: false,   // 阻止点击事件冒泡(防止手动快速来回滑动后自动滑动紊乱)
-            observer:true,                //修改swiper自己或子元素时，自动初始化swiper
-            observeParents:true           //修改swiper的父元素时，自动初始化swiper
+            //observer:true,                //修改swiper自己或子元素时，自动初始化swiper
+           // observeParents:true           //修改swiper的父元素时，自动初始化swiper
           })
         }
       },

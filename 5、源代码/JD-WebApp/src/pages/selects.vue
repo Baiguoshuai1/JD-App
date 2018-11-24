@@ -54,6 +54,11 @@
               $(".sliderul").children("li").eq(0).addClass('active')
               $("#j-parent").children(":first").show();
             }
+             //将当前商品滚动位置保存，下次进入为此次位置
+            $(".j-content").scroll(function () {
+              alert("1")
+              window.localStorage.setItem("shopscroll",$(".menu-right ").scrollTop())
+            })
 
             $('#sidebar ul li').click(function () {
               //当前添加class名，其他清除
@@ -69,7 +74,6 @@
              //       bottom:0+"px"
              //    },300)
              //  }
-
             })
           })
         }

@@ -1,7 +1,8 @@
 [
   [
     {
-      "List": [
+      "List":
+      [
         {
           "backImg":"../../../static/img/timg.jpg","title": "推荐分类","shopID":1
         },
@@ -196,32 +197,32 @@
       ],
       "shop6":[
         [
-          {"h5":"热门品牌","titleImg":"../../../static/img/5bed07a1N25b798de.jpg","name":"时尚女鞋","img":"../../../static/img/5be45379N0f7ae3eb.jpg"},
-          {"name":"时尚男鞋","img":"../../../static/img/5b5e7edfN540b3254.png"},
-          {"name":"时尚女鞋","img":"../../../static/img/5be45379N0f7ae3eb.jpg"},
-          {"name":"时尚男鞋","img":"../../../static/img/5b2a528eN7c6bde83.jpg"},
-          {"name":"时尚女鞋","img":"../../../static/img/5be45379N0f7ae3eb.jpg"},
-          {"name":"时尚男鞋","img":"../../../static/img/5b2a528eN7c6bde83.jpg"},
-          {"name":"时尚女鞋","img":"../../../static/img/5be45379N0f7ae3eb.jpg"},
-          {"name":"时尚男鞋","img":"../../../static/img/5b5e7edfN540b3254.png"}
+          {"h5":"热门品牌","titleImg":"../../../static/img/5bea357aN2feb8c84.jpg","name":"时尚女鞋","img":"../../../static/img/5a2a6d49Nc1a009d3.jpg"},
+          {"name":"时尚男鞋","img":"../../../static/img/5ab4c680N7d291625.jpg"},
+          {"name":"时尚女鞋","img":"../../../static/img/5a2a6d49Nc1a009d3.jpg"},
+          {"name":"时尚男鞋","img":"../../../static/img/5ab4c680N7d291625.jpg"},
+          {"name":"时尚女鞋","img":"../../../static/img/5a2a6d4dNeae9cdbc.jpg"},
+          {"name":"时尚男鞋","img":"../../../static/img/5ab4c680N7d291625.jpg"},
+          {"name":"时尚女鞋","img":"../../../static/img/5a2a6d4dNeae9cdbc.jpg"},
+          {"name":"时尚男鞋","img":"../../../static/img/5a6b0e2dN3bd30644.jpg"}
         ],
         [
-          {"h5":"热门分类","name":"时尚女鞋","img":"../../../static/img/5be45379N0f7ae3eb.jpg"},
-          {"name":"时尚男鞋","img":"../../../static/img/5b5e7edfN540b3254.png"},
-          {"name":"时尚女鞋","img":"../../../static/img/5b2a528eN7c6bde83.jpg"},
-          {"name":"时尚男鞋","img":"../../../static/img/5b5e7edfN540b3254.png"},
+          {"h5":"热门分类","name":"时尚女鞋","img":"../../../static/img/59116abbNf1ba9a6a.jpg"},
+          {"name":"时尚男鞋","img":"../../../static/img/59415326Nca211b49.jpg"},
+          {"name":"时尚女鞋","img":"../../../static/img/59116abbNf1ba9a6a.jpg"},
+          {"name":"时尚男鞋","img":"../../../static/img/59415326Nca211b49.jpg"},
           {"name":"时尚女鞋","img":"../../../static/img/5be45379N0f7ae3eb.jpg"},
-          {"name":"时尚男鞋","img":"../../../static/img/5b2a528eN7c6bde83.jpg"}
+          {"name":"时尚男鞋","img":"../../../static/img/5b8747caN2c41addf.jpg"}
         ],
         [
-          {"h5":"热门品牌","name":"时尚女鞋","img":"../../../static/img/5be45379N0f7ae3eb.jpg"},
-          {"name":"时尚男鞋","img":"../../../static/img/5b5e7edfN540b3254.png"},
-          {"name":"时尚女鞋","img":"../../../static/img/5be45379N0f7ae3eb.jpg"},
-          {"name":"时尚男鞋","img":"../../../static/img/5b2a528eN7c6bde83.jpg"},
-          {"name":"时尚女鞋","img":"../../../static/img/5be45379N0f7ae3eb.jpg"},
-          {"name":"时尚男鞋","img":"../../../static/img/5b2a528eN7c6bde83.jpg"},
-          {"name":"时尚女鞋","img":"../../../static/img/5be45379N0f7ae3eb.jpg"},
-          {"name":"时尚男鞋","img":"../../../static/img/5b5e7edfN540b3254.png"}
+          {"h5":"热门品牌","name":"时尚女鞋","img":"../../../static/img/5a2a6d49Nc1a009d3.jpg"},
+          {"name":"时尚男鞋","img":"../../../static/img/5ab4c680N7d291625.jpg"},
+          {"name":"时尚女鞋","img":"../../../static/img/5a2a6d49Nc1a009d3.jpg"},
+          {"name":"时尚男鞋","img":"../../../static/img/5ab4c680N7d291625.jpg"},
+          {"name":"时尚女鞋","img":"../../../static/img/5a2a6d4dNeae9cdbc.jpg"},
+          {"name":"时尚男鞋","img":"../../../static/img/5ab4c680N7d291625.jpg"},
+          {"name":"时尚女鞋","img":"../../../static/img/5a2a6d4dNeae9cdbc.jpg"},
+          {"name":"时尚男鞋","img":"../../../static/img/5a6b0e2dN3bd30644.jpg"}
         ]
       ],
       "shop7":[

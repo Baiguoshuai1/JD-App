@@ -9,7 +9,8 @@
         "subname": "立领长袖缎面齐地秋冬款简约蕾丝 白色 M",
         "price": "299.00",
         "num": 2,
-        "val": 1
+        "val": 1,
+        "allnum":2
       },
       {
         "img": "../../../static/img/57551108N694f4a76.jpg",
@@ -29,7 +30,8 @@
     "subname": "女 香槟色绑带1.5米拖尾 L",
     "price": "568",
     "num": 1,
-    "val": 2
+    "val": 2,
+    "allnum":1
   }
     ],
     [
@@ -41,7 +43,8 @@
     "subname": "kiss款（50个装）",
     "price": "8.8",
     "num": 1,
-    "val": 3
+    "val": 3,
+    "allnum":1
   }
     ],
     [
@@ -53,7 +56,8 @@
     "subname": "爱多多 Q小贝F1京东自营直送套餐10份装",
     "price": "82.8",
     "num": 1,
-    "val": 4
+    "val": 4,
+    "allnum":1
   }
     ],
     [
@@ -65,7 +69,8 @@
     "subname": "1克拉效果FG/SI（12分主钻+15分副钻）",
     "price": "2393",
     "num": 1,
-    "val": 5
+    "val": 5,
+    "allnum":1
   }
       ]
   ]

@@ -25,7 +25,10 @@ $wt:#fff;
   }
 }
 .header-boxChange{
-  background-color: #fff!important;
+  background-color: #fff!important;border-bottom: 1px solid #eee;
+  input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #333!important;
+  }
   input{
     background-color: #eee!important;
   }

@@ -11,7 +11,7 @@
           </div>
         </div>
         <div class="main">
-          <shop-list :items="products[0]" ref="myInput"></shop-list>
+          <shop-list :items="products[0]" ref="myInput" :totalchecknum="totalchecknum" :totalmoney="totalmoney" :totalnum="totalnum"></shop-list>
         </div>
         <div class="upload" v-if="pullup" style="text-align: center;font-size: 1rem;color:#aaa">{{pullupText}}</div>
       </div>
@@ -26,13 +26,14 @@
       </div>
       <div class="PriceAll">
         <div class="box-l">
-          <label for="quan">
-            <input id="quan" type="checkbox" @click="checkAlls($event)">
+          <label for="quan" class="colorinput">
+            <input class="colorinput-input" id="quan" type="checkbox" @click="checkAlls($event)">
+            <span class="colorinput-color bg-indigo"></span>
           </label>
           <span class="sp1">全选</span>
-          合计:<div class="priceAllstyle">￥<span class="sp2">199.00</span></div>
+          合计:<div class="priceAllstyle">￥<span class="sp2"></span></div>
         </div>
-        <div class="btn">去结算(1)</div>
+        <div class="btn">去结算(<span id="allnum"></span>)</div>
       </div>
     </div>
 </template>
@@ -48,6 +49,9 @@
       data() {
         return {
           products: [],
+          totalnum:0,
+          totalmoney:0,
+          totalchecknum:0,
           pulldown:false,
           pulldownTxt:"松手更新",
           pulldownsubTxt:"让购物更便捷",
@@ -68,7 +72,15 @@
         },
         _getcarShop() {
           shopcarlistData.getshopcarlist(data => {
-            this.products = data;   //初始化数据
+            //初始化数据
+            this.products = data;
+            data[0].forEach((item,index)=>{
+              for(let i in item){
+                this.totalnum+=item[i].num
+                this.totalmoney+=item[i].price*item[i].num
+                this.totalchecknum++
+              }
+            })
             //数据更新后再次刷新dom
             this.$nextTick(()=>{
               //循环显示小图标！！！！因为异步加载 这里不用foreach 因为foreach是根据数据调函数来操作dom，但此时dom已经创建

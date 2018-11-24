@@ -1,4 +1,58 @@
 @charset "utf-8";
+.colorinput {
+  margin: 0;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  margin-right: .8rem;
+  width: 1.5rem;
+  height:1.5rem;
+}
+.colorinput-input {
+  position: absolute;
+  z-index: 100000;
+  opacity: 0;
+}
+.colorinput-color {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 40, 100, 0.2);
+  color: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+label {
+  display: inline-block;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+.colorinput-color:before {
+  content: '';
+  opacity: 0;
+  position: absolute;
+  z-index: 1000;
+  top: -.1rem;
+  left: -.1rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  transition: .3s opacity;
+  background:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E") no-repeat center center/50% 50%;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.colorinput-input:checked ~ .colorinput-color:before {
+  opacity: 1;
+
+}
+.bg-indigo {
+ // background-color: #6574cd !important;
+}
+
 .header{
   position: fixed!important;
   top:0;left:0;
